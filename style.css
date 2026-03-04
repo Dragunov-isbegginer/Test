@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(-45deg, #ee7752, #9DE8ED);
+    background-size: 400% 400%;
+    /* FIX: This triggers your moving background */
+    animation: gradientBG 15s ease infinite; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Added to keep everything centered vertically */
+    padding: 20px; 
+    overflow: hidden; /* Prevents weird scrolling on mobile */
+}
+
+/* The "Map" for the background movement */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}.default-title {
+    color: #11ff40; /* Fix the broken hex code #1ff40 */
+    font-size: 1.8rem;
+    text-align: center;
+    width: 100%;
+}
+
+.heart-title {
+    color: #ff3366 !important;
+    font-size: 2.2rem; /* Adjusted for mobile width */
+    text-shadow: 0 0 10px #ff3366;
+    text-align: center;
+}
+
+#gifContainer img {
+    max-width: 80%; /* Ensures the GIF never overflows the screen */
+    height: auto;
+    border-radius: 15px;
+}
+
+/* Standardizing button for mobile tap */
+#testBtn {
+    position: relative;
+    padding: 15px 40px; /* Bigger tap area for thumbs */
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    background: #FA05ED;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 6px 0 #BA00AF; 
+    transition: all 0.1s;
+    -webkit-tap-highlight-color: transparent; /* Removes blue box on tap */
+}
+/* style.css */
+
+/* Add this to the TOP of your style.css to fix the mobile zoom issue */
+@viewport {
+  width: device-width;
+  zoom: 1.0;
+}
+
+.hidden-gif {
+    display: none !important; /* The !important ensures it stays hidden */
+    visibility: hidden;
+    opacity: 0;
+    margin: 20px auto;
+}
+
+.show-gif {
+    display: block !important; 
+    visibility: visible;
+    opacity: 1;
+    animation: popIn 0.3s ease-out;
+}
+
+/* Ensure the Reset button is also hidden at start */
+.hidden-reset {
+    display: none !important;
+}
+
+.show-reset {
+    display: block !important;
+    margin: 10px auto;
+}
